@@ -1,3 +1,4 @@
-.formWorkout {
-  border:1px solid #eee;
+.formWorkout > * {
+  display: flex;
+  flex-direction: column;
 }
