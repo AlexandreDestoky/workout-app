@@ -2,3 +2,32 @@
   display: flex;
   flex-direction: column;
 }
+
+.choiceList {
+  border:1px solid rgba(0, 0, 0, 0.363);
+  margin: 20px auto;
+  width: fit-content;
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+
+.exoChoice {
+  display:flex;
+  align-items: center;
+  margin: 5px auto;
+}
+
+.exoChoice > * {
+  margin: 0 10px;
+}
+
+@media (max-width: 450px) {  
+  .exoChoice > * {
+    margin:0 3px;
+  }
+}
+
+input[type="number"] {
+  width: 80px;
+}
