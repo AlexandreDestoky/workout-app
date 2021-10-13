@@ -1,9 +1,17 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AddWorkout from "./Pages/AddWorkout/AddWorkout";
+import Home from "./Pages/Home/Home";
 
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/addWorkout" exact component={AddWorkout}></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
