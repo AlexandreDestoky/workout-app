@@ -1,0 +1,40 @@
+.formWorkout > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.choiceList {
+  border:1px solid rgba(0, 0, 0, 0.363);
+  margin: 20px auto;
+  width: fit-content;
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+
+.exoChoice {
+  display:flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.exoChoice > * {
+  display:flex;
+  align-items: center;
+}
+.exoChoice div > * {
+  margin : 0 10px;
+}
+.exoChoice input {
+  display: inline-block;
+}
+
+@media (max-width: 450px) {  
+  .exoChoice > * {
+    margin:0 3px;
+  }
+}
+
+input[type="number"] {
+  width: 80px;
+}
