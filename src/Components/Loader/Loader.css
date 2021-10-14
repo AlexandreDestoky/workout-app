@@ -1,0 +1,40 @@
+.chargement {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: row;
+  width:100%;
+  height:100vh;
+}
+
+
+.chargement span{
+  width:40px;
+  height:40px;
+  background-color: #000;
+  margin:5px;
+  border-radius:50px;
+  animation:fade 1.5s alternate infinite;
+}
+
+.chargement span:nth-of-type(2){
+  animation-delay:0.25s;
+}
+
+.chargement span:nth-of-type(3){
+  animation-delay:0.5s;
+}
+
+.chargement span:nth-of-type(4){
+  animation-delay:0.75s;
+}
+
+.chargement span:nth-of-type(5){
+  animation-delay:1s;
+}
+
+@keyframes fade{
+  0%{opacity:0;}
+  50%{opacity:0;}
+  100%{opacity:1;}
+}

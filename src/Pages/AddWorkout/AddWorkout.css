@@ -6,7 +6,7 @@
 .choiceList {
   border:1px solid rgba(0, 0, 0, 0.363);
   margin: 20px auto;
-  width: fit-content;
+  /* width: fit-content; */
   height: 50vh;
   overflow-y: scroll;
 }
@@ -29,12 +29,20 @@
   display: inline-block;
 }
 
-@media (max-width: 450px) {  
-  .exoChoice > * {
-    margin:0 3px;
-  }
-}
-
 input[type="number"] {
   width: 80px;
+}
+
+@media (max-width: 450px) {  
+  .exoChoice > * {
+    margin:0px;
+  }
+  input[type="number"] {
+    width: 50px;
+    margin:0;
+  }
+  label {
+    font-size: 11px;
+    margin:0;
+  }
 }
