@@ -2,15 +2,21 @@ import React from "react";
 import "./AddWorkout.css";
 import ExoChoice from "../../Components/ExoChoice/ExoChoice";
 import Loader from "../../Components/Loader/Loader";
+import SearchBar from "../../Components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 
 export default function AddWorkout() {
   const [exoImg, setExoImg] = useState([]);
   const [exoNom, setExoNom] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchWord, setsearchWord] = useState("");
+
+  const exoRecherche = e => {
+    setsearchWord((e.target.value).toLowerCase());
+  };
+  
   useEffect(() => {
     fetch("https://wger.de/api/v2/exercise/?language=2&limit=240")
-    // fetch("https://wger.de/api/v2/exercise/?language=2&limit=10")
       .then(response => response.json())
       .then(response => {
         setExoNom(response.results);
@@ -50,10 +56,16 @@ export default function AddWorkout() {
           <label htmlFor="nom">Nom de l'entrainement</label>
           <input type="text" name="nom" id="nom" placeholder="Upper A" />
         </div>
+        <SearchBar fctChange={exoRecherche}/>
         <div className="choiceList">
         {loading ? <Loader/> : 
-          exoNom.map(el => (
-            <ExoChoice key={el.uuid} nom={el.name} imgUrl={exoImg.find(image => image.id === el.exercise_base)?.img || ""} />
+          exoNom
+          .filter(el => el.name.toLowerCase().includes(searchWord))
+          .map(el => (
+            <ExoChoice 
+            key={el.uuid} 
+            nom={el.name} 
+            imgUrl={exoImg.find(image => image.id === el.exercise_base)?.img || ""} />
           ))}
         </div>
         <button className="addWorkout">Ajouter l'entrainement</button>
