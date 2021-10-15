@@ -11,9 +11,7 @@ export default function AddWorkout() {
   const [loading, setLoading] = useState(true);
   const [searchWord, setsearchWord] = useState("");
 
-  const exoRecherche = e => {
-    setsearchWord((e.target.value).toLowerCase());
-  };
+  const exoRecherche = e => setsearchWord((e.target.value).toLowerCase());
   
   useEffect(() => {
     fetch("https://wger.de/api/v2/exercise/?language=2&limit=240")
