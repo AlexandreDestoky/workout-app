@@ -23,15 +23,16 @@ export default function AddWorkout() {
         });
         setLoading(false);
       });
-
-    const fetchImage = id => {
-      fetch(`https://wger.de/api/v2/exerciseimage/?exercise_base=${id}`)
+      
+      const fetchImage = id => {
+        fetch(`https://wger.de/api/v2/exerciseimage/?exercise_base=${id}`)
         .then(response => response.json())
         .then(response => {
           setExoImg(exoImg => [...exoImg, { id: id, img: response.results[0]?.image }]);
         });
-    };
-  }, []);
+      };
+    }, []);
+
   return (
     <div>
       <h1>Ajouter un entrainement</h1>

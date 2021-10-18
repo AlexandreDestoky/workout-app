@@ -1,6 +1,11 @@
 .formWorkout > * {
   display: flex;
   flex-direction: column;
+  margin: 10px 0 20px;
+}
+
+#jour, #nom {
+  height: 40px;
 }
 
 .choiceList {
