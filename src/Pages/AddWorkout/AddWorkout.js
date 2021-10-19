@@ -4,6 +4,7 @@ import ExoChoice from "../../Components/ExoChoice/ExoChoice";
 import Loader from "../../Components/Loader/Loader";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function AddWorkout() {
   const [exoImg, setExoImg] = useState([]);
@@ -32,11 +33,19 @@ export default function AddWorkout() {
         });
       };
     }, []);
+    let history = useHistory();
+
+    const changeTest = function(e) {
+      e.preventDefault();
+      setTimeout(() => {
+        history.push("/")
+      }, 700);
+    }
 
   return (
     <div>
       <h1>Ajouter un entrainement</h1>
-      <form className="formWorkout">
+      <form className="formWorkout" onSubmit={e =>changeTest(e)}>
         <div className="choixJour">
           <label htmlFor="jour">Jour de la semaine</label>
           <select name="jour" id="jour">
